@@ -102,3 +102,6 @@ class BlacklistDelete(Resource):
             return {'msg': f'Error al eliminar los registros de la lista negra: {salida}'}, 500
         
         return {'msg': 'Todos los registros de la lista negra han sido eliminados'}, 200
+    
+
+#desencadenar
