@@ -104,4 +104,4 @@ class BlacklistDelete(Resource):
         return {'msg': 'Todos los registros de la lista negra han sido eliminados'}, 200
     
 
-#desencadenar
+#build inicial

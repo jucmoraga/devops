@@ -37,7 +37,7 @@ def test_get_email_success(app, mocker):
             resource = BlacklistGetEmail()
             response, status_code = resource.get('test@example.com')
             
-            assert status_code == 11111
+            assert status_code == 200
             assert response == mock_response
 
 def test_get_email_not_found(app, mocker):
