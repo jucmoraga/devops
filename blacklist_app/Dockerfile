@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/python:3.11-slim
+FROM python:3.11-slim
 
 # Crear y usar el directorio de trabajo
 WORKDIR /app
