@@ -14,7 +14,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t blacklist-app:latest .
+      - docker build -t devops:latest .
       - docker tag devops:latest 336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest
   post_build:
     commands:
@@ -22,7 +22,7 @@ phases:
       - echo Pushing the Docker image...
       - docker push 336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest
       - echo Writing Image Definitions file...
-      - printf '[{"name":"blacklist","imageUri":"336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest"}]' > imagedefinitions.json
+      - printf '[{"name":"devops","imageUri":"336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest"}]' > imagedefinitions.json
       - printf '{"ImageURI":"336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest"}' > imageDetail.json
       - cat imagedefinitions.json
 artifacts:
