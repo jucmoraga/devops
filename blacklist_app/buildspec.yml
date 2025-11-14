@@ -9,21 +9,21 @@ phases:
       - pip install -r requirements.txt
       - pytest tests/ -v
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 387050840675.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 336658617132.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t blacklist-app:latest .
-      - docker tag blacklist-app:latest 387050840675.dkr.ecr.us-east-1.amazonaws.com/blacklist-app:latest
+      - docker tag devops:latest 336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 387050840675.dkr.ecr.us-east-1.amazonaws.com/blacklist-app:latest
+      - docker push 336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest
       - echo Writing Image Definitions file...
-      - printf '[{"name":"blacklist","imageUri":"387050840675.dkr.ecr.us-east-1.amazonaws.com/blacklist-app:latest"}]' > imagedefinitions.json
-      - printf '{"ImageURI":"387050840675.dkr.ecr.us-east-1.amazonaws.com/blacklist-app:latest"}' > imageDetail.json
+      - printf '[{"name":"blacklist","imageUri":"336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest"}]' > imagedefinitions.json
+      - printf '{"ImageURI":"336658617132.dkr.ecr.us-east-1.amazonaws.com/devops:latest"}' > imageDetail.json
       - cat imagedefinitions.json
 artifacts:
   base-directory: blacklist_app
