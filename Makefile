@@ -2,7 +2,7 @@
 # VARIABLES GENERALES
 # =====================
 AWS_REGION=us-east-1
-ACCOUNT_ID=387050840675
+ACCOUNT_ID=336658617132
 
 # Credenciales fijas para la base de datos
 DB_USER=proyectogrupo10
@@ -32,13 +32,13 @@ ecr:
 
 service:
 	aws ecs create-service \
-	--cluster great-gorilla-batyr9 \
+	--cluster educated-eagle-ljon8f \
 	--service-name servicio-bluegreen \
-	--task-definition tarea-1-devops:4 \
+	--task-definition task-definition-bl:1 \
 	--desired-count 1 \
 	--launch-type FARGATE \
 	--deployment-controller type=CODE_DEPLOY \
-	--load-balancers "targetGroupArn=arn:aws:elasticloadbalancing:us-east-1:336658617132:targetgroup/target-group-1/9cd39e6e0aa265ec,containerName=Blacklist,containerPort=5000" \
+	--load-balancers "targetGroupArn=arn:aws:elasticloadbalancing:us-east-1:336658617132:targetgroup/target-group-1/3e48e373ec5d12c4,containerName=contenedor-bl,containerPort=5000" \
 	--network-configuration "awsvpcConfiguration={subnets=[subnet-02fd87fcaea7d4e79,subnet-0f5a8542a29b6bf8a],securityGroups=[sg-0a04013394a7e4fb6],assignPublicIp=ENABLED}"
 
 # =====================
