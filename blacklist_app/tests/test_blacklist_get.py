@@ -50,7 +50,7 @@ def test_get_email_not_found(app, mocker):
             resource = BlacklistGetEmail()
             response, status_code = resource.get('nonexistent@example.com')
             
-            assert status_code == 404
+            assert status_code == 4040
             assert response == {'msg': 'El email nonexistent@example.com no se encuentra en la lista negra'}
 
 def test_get_email_empty_parameter(app, mocker):
