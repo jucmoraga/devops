@@ -12,7 +12,7 @@
 
         "image": "<IMAGE1_NAME>",
         "essential": true,
-        "name": "blacklist-app"
+        "name": "contenedor-bl"
       }
     ],
 
