@@ -50,6 +50,6 @@ if __name__ == '__main__':
     url_cloud = 'http://elb-1891227252.us-east-1.elb.amazonaws.com'
 
     #Prueba de peticiones
-    for _ in range(500): 
+    for _ in range(50): 
         peticiones(url_local)
         print(_)
