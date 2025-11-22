@@ -63,8 +63,8 @@ class BlacklistRegister(Resource):
         salida = blacklist_crud.addEmailToBlacklist(data)
 
         #Validamos si hubo un error al guardar en base de datos
-        # if isinstance(salida, str):
-        #     return {'msg': f'Error al agregar el email a la lista negra: {salida}'}, 500
+        if isinstance(salida, str):
+            return {'msg': f'Error al agregar el email a la lista negra: {salida}'}, 500
 
         return {'msg': 'Usuario agregado a la lista negra exitosamente'}, 200
 
