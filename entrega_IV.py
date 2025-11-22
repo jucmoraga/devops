@@ -7,7 +7,7 @@ def peticiones(url: str):
     token = requests.post(f"{url}/v1/blacklists/token").json().get('token')
 
     #Generamos tipo de request (exitoso/malo)
-    tipo_request = random.choice(['malo', 'malo'])
+    tipo_request = random.choice(['exitoso', 'malo'])
 
     #Definimos headers
     headers = {
