@@ -39,6 +39,8 @@ def peticiones(url: str):
 
         #Realizamos la peticion POST para agregar a la blacklist
         requests.post(f"{url}/v1/blacklists", json = payload, headers = headers)
+    
+    print(requests.get(f"{url}/v1/blacklists/health").json())
 
 if __name__ == '__main__':
     #URL localhost
