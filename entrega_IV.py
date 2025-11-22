@@ -9,28 +9,36 @@ def peticiones(url: str):
     #Generamos tipo de request (exitoso/malo)
     tipo_request = random.choice(['exitoso', 'malo'])
 
+    #Definimos headers
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {token}'
+    }
+
     if tipo_request == 'exitoso':
         #Generamos payload
         payload = {
             "email": f"user_{uuid.uuid4()}@example.com",
             "appId": str(uuid.uuid4()),
-            "blockedReason": "Razón de prueba"
-        }
-
-        #Definimos headers
-        headers = {
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {token}'
+            "blockedReason": 'Suspected fraudulent activity'
         }
 
         #Realizamos la peticion POST para agregar a la blacklist
         requests.post(f"{url}/v1/blacklists", json = payload, headers = headers)
 
         #Realizamos la peticion GET para consultar el email agregado
-        requests.get(f"{url}/v1/blacklists/{payload.get('email')}", headers = headers)
+        requests.get(f"{url}/v1/blacklists/{payload.get('email')}", headers = headers).json()
     
     else:
-        pass
+        #Generamos payload
+        payload = {
+            "email": f"user_{uuid.uuid4()}@example.com",
+            "appId": str(uuid.uuid4()),
+            "blockedReason": ''.join(['a'] * 300)
+        }
+
+        #Realizamos la peticion POST para agregar a la blacklist
+        requests.post(f"{url}/v1/blacklists", json = payload, headers = headers)
 
 if __name__ == '__main__':
     #URL localhost
@@ -40,5 +48,6 @@ if __name__ == '__main__':
     url_cloud = 'http://elb-1891227252.us-east-1.elb.amazonaws.com'
 
     #Prueba de peticiones
-    for _ in range(1000):
+    for _ in range(1000): 
         peticiones(url_local)
+        print(_)

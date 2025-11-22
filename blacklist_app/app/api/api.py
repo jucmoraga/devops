@@ -42,9 +42,9 @@ class BlacklistRegister(Resource):
             return {'msg': 'El appId proporcionado no es un UUID válido'}, 400
 
         #Validamos la longitud del campo blockedReason si esta presente
-        if data.get('blockedReason'):
-            if len(data.get('blockedReason')) > 255:
-                return {'msg': 'El campo blockedReason no puede exceder 255 caracteres'}, 400
+        # if data.get('blockedReason'):
+        #     if len(data.get('blockedReason')) > 255:
+        #         return {'msg': 'El campo blockedReason no puede exceder 255 caracteres'}, 400
 
         #Validamos que el email no este ya en la lista negra
         email_existente = blacklist_crud.getEmailFromBlacklist(data.get('email'))
