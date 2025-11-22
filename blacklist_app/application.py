@@ -10,7 +10,7 @@ from app.api.api import BlacklistRegister, BlacklistHealth, BlacklistToken, Blac
 application = Flask(__name__)
 
 #Ponemos configuraciones de la app
-application.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://proyectogrupo10:proyectogrupo10@terraform-20251121234952721500000001.cifuwoics1ov.us-east-1.rds.amazonaws.com:5432/proyect_db'
+application.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://proyectogrupo10:proyectogrupo10@terraform-20251122212627271800000001.cifuwoics1ov.us-east-1.rds.amazonaws.com:5432/proyect_db'
 application.config['JWT_SECRET_KEY'] = 'supersecretkey'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 application.config['PROPAGATE_EXCEPTIONS'] = True
