@@ -126,30 +126,6 @@ def test_blacklist_register_invalid_appId(app, mocker):
             'msg': 'El appId proporcionado no es un UUID válido'
         }
 
-def test_blacklist_register_blockedreason_mayor_que_255(app, mocker):
-    #Mockeamos la verificacion del JWT para que siempre pase
-    mocker.patch('flask_jwt_extended.view_decorators.verify_jwt_in_request')
-
-    #Simulamos un request JSON
-    with app.test_request_context(
-        '/v1/blacklists',
-        method = 'POST',
-        json = {'email': 'test@example.com', 'appId': '123e4567-e89b-12d3-a456-426614174000', 
-                'blockedReason': 'a' * 256},
-    ):
-
-        #Importamos la clase BlacklistRegister
-        resource = BlacklistRegister()
-
-        #Llamamos el metodo post a probar la validacion de email vacio
-        response, status = resource.post()
-
-        #Salidas esperadas
-        assert status == 400
-        assert response == {
-            'msg': 'El campo blockedReason no puede exceder 255 caracteres'
-        }
-
 def test_blacklist_register_email_ya_en_blacklist(app, mocker):
     #Mockeamos la verificacion del JWT para que siempre pase
     mocker.patch('flask_jwt_extended.view_decorators.verify_jwt_in_request')

@@ -5,17 +5,12 @@ class BlacklistCRUD:
         self.session = db.session
     
     def addEmailToBlacklist(self, information: dict):
-        try:
-            #Creamos el nuevo registro
-            new_blacklist_email = Blacklist(**information)
+        #Creamos el nuevo registro
+        new_blacklist_email = Blacklist(**information)
 
-            #Hacemos persistencia
-            self.session.add(new_blacklist_email)
-            self.session.commit()
-        
-        except Exception as e:
-            self.session.rollback()
-            return str(e)
+        #Hacemos persistencia
+        self.session.add(new_blacklist_email)
+        self.session.commit()
     
     def getEmailFromBlacklist(self, email: str):
         try:
