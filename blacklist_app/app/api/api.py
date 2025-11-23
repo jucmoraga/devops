@@ -90,7 +90,7 @@ class BlacklistGetEmail(Resource):
 
 class BlacklistHealth(Resource):
     def get(self):
-        return {'status': 'pong azul'}, 200
+        return {'status': 'pong verde'}, 200
 
 class BlacklistDelete(Resource):
     def post(self):

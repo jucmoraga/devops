@@ -47,9 +47,9 @@ if __name__ == '__main__':
     url_local = 'http://localhost:5000'
 
     #URL del balanceador de carga
-    url_cloud = 'http://elb-1891227252.us-east-1.elb.amazonaws.com'
+    url_cloud = 'http://elb-1559238247.us-east-1.elb.amazonaws.com'
 
     #Prueba de peticiones
-    for _ in range(500): 
-        peticiones(url_local)
+    for _ in range(1500):
+        peticiones(url_cloud)
         print(_)
